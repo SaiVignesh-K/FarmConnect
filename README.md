@@ -33,4 +33,5 @@ The Project is Opensource. Feel free to use or modify the code.
 ## Contributers
 
 - [@HonestFreak](https://www.github.com/HonestFreak)
+- [@karthikprasads](https://github.com/karthikprasads)
 
