@@ -6,7 +6,7 @@ Revolutionizing agriculture support through unprecedented abstraction, user-frie
 
 ## 🌾Deployment and Usage
 ### Deploying the API endpoints (backend)
-- Backend is written in FastAPI (python)
+- Backend is developed using FastAPI (python)
 - Goto the backend folder 
 ```bash
   cd backend
