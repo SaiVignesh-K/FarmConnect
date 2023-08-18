@@ -1,0 +1,44 @@
+fastapi
+uvicorn
+
+#for template
+jinja2
+
+#for static files
+aiofiles
+
+#for database
+sqlalchemy
+psycopg2
+
+#for loading environment variables
+python-dotenv
+
+#for email validation
+pydantic[email]
+
+#hashing
+passlib[bcrypt]
+
+
+#for testing
+pytest
+requests
+
+#for creating jwt tokens
+python-jose
+
+#for  cleaning up codebase on each commit
+pre-commit
+
+#for accessing form data
+python-multipart
+
+#Databases gives asyncio support for a range of databases.
+databases
+databases[sqlite]
+asyncpg
+aiosqlite
+
+#seedir to print tree structure of folders
+seedir
