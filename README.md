@@ -1,7 +1,7 @@
 
 # 👨‍🌾 AgriConnect
 
-Revolutionizing agriculture support through unprecedented abstraction, user-friendly interfaces, and ubiquitous access
+Revolutionizing agriculture support through unprecedented abstraction, user-friendly interfaces, and ubiquitous access.
 
 
 ## 🌾Deployment and Usage
