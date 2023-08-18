@@ -1,7 +1,7 @@
 
 # 👨‍🌾 AgriConnect
 
-Automating farmer assitance with abstraction, ease and availability like never before.
+Revolutionizing agriculture support through unprecedented abstraction, user-friendly interfaces, and ubiquitous access
 
 
 ## 🌾Deployment and Usage
