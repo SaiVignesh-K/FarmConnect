@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/farmerai1"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="35dp"
+        android:layout_marginRight="350dp"
+        android:layout_marginTop="1dp"
+
+        android:layout_height="35dp"
+        android:background="@drawable/back"
+        android:src="@drawable/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#6b6aff"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-89dp">
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Enter Message" />
+
+        <ImageView
+            android:id="@+id/voice"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+
+            android:src="@drawable/voice" />
+
+        <ImageView
+            android:id="@+id/send"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+
+            android:src="@drawable/send" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
