@@ -6,6 +6,7 @@ Revolutionizing agriculture support through unprecedented abstraction, user-frie
 
 ## 🌾Deployment and Usage
 ### Deploying the API endpoints (backend)
+- Frontend is developed using Java and Kotlin
 - Backend is developed using FastAPI (python)
 - Go to the backend folder 
 ```bash
