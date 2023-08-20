@@ -32,7 +32,6 @@
                     android:src="@drawable/profile1"
 
 
-
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.524"
 
@@ -54,24 +53,26 @@
 
                 <EditText
                     android:id="@+id/editTextText2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="235dp"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/text_bg"
                     android:ems="10"
-                    android:inputType="text"
                     android:hint="Name"
+                    android:inputType="text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+
                 <EditText
                     android:id="@+id/editTextNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="text"
                     android:hint="Item Name"
+                    android:inputType="text"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,8 +84,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="numberDecimal"
                     android:hint="Price Per kg"
+                    android:inputType="numberDecimal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
@@ -96,8 +97,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="numberDecimal"
                     android:hint="Number of Kg Available"
+                    android:inputType="numberDecimal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
@@ -110,8 +111,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:ems="10"
-                    android:inputType="numberDecimal"
                     android:hint="Product Description"
+                    android:inputType="numberDecimal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
