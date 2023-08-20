@@ -25,13 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="3dp"
+
             android:layout_toLeftOf="@id/idFABSend"
             android:hint="Enter Message"
+
             android:singleLine="true"
             android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            />
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:textColorHint="@color/white" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -41,6 +42,7 @@
             app:fabCustomSize="45dp"
             android:backgroundTint="@color/fab_color"
             android:tint="@color/white"
+
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>

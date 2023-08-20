@@ -26,7 +26,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter{
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        switch(ViewType){
+        switch(viewType){
             case 0:
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_msg_rv_item,parent,false);
                 return new UserViewHolder(view);
@@ -47,6 +47,18 @@ public class ChatRVAdapter extends RecyclerView.Adapter{
             case "bot":
                 ((BotViewHolder)holder).botMsgTV.setText(chatsModal.getMessage());
                 break;
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        switch (chatsModalArrayList.get(position).getSender()){
+            case "user":
+                return 0;
+            case "bot":
+                return 1;
+            default:
+                return -1;
         }
     }
 
