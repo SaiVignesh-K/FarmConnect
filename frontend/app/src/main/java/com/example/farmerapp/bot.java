@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 public class bot extends AppCompatActivity {
     ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,5 +22,7 @@ public class bot extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }
