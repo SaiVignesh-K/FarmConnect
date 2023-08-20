@@ -1,59 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/farmerai1"
+    android:background="@color/back_color"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="35dp"
-        android:layout_marginRight="350dp"
-        android:layout_marginTop="1dp"
-
-        android:layout_height="35dp"
-        android:background="@drawable/back"
-        android:src="@drawable/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#6b6aff"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-89dp">
+        android:id="@+id/idRVChats"
+        android:layout_above="@+id/idRLMsg"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/idRLMsg">
 
         <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="250dp"
+            android:id="@+id/idEdtMessage"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Enter Message" />
+            android:layout_centerInParent="true"
+            android:layout_margin="3dp"
+            android:layout_toLeftOf="@id/idFABSend"
+            android:hint="Enter Message"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_send"
+            android:id="@+id/idFABSend"
+            android:layout_margin="4dp"
+            app:fabCustomSize="45dp"
+            android:backgroundTint="@color/fab_color"
+            android:tint="@color/white"
+            android:layout_alignParentRight="true"/>
 
-        <ImageView
-            android:id="@+id/voice"
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
+    </RelativeLayout>
 
-            android:src="@drawable/voice" />
-
-        <ImageView
-            android:id="@+id/send"
-            android:layout_width="45dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-
-            android:src="@drawable/send" />
-
-
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
