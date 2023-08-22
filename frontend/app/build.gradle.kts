@@ -41,7 +41,7 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.5.0")
-
+    implementation ("com.google.firebase:firebase-firestore:23.0.3")
     implementation ("com.google.firebase:firebase-auth:21.0.1")
     implementation ("com.google.firebase:firebase-database:20.0.3")
     //newly added
