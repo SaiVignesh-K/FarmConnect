@@ -1,6 +1,7 @@
 package com.example.farmerapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
         import android.view.View;
         import android.widget.Button;
@@ -43,7 +44,13 @@ public class signup extends AppCompatActivity {
         farmerCheckBox = findViewById(R.id.farmercheck);
         signupButton = findViewById(R.id.signupbutton);
         alreadyUserTextView = findViewById(R.id.alreadyuser);
-
+        alreadyUserTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(signup.this, login.class);
+                startActivity(intent);
+            }
+        });
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +79,8 @@ public class signup extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> databaseTask) {
                                             if (databaseTask.isSuccessful()) {
                                                 Toast.makeText(signup.this, "User registration successful!", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(signup.this, login.class));
+                                                finish();
                                             } else {
                                                 Exception exception = databaseTask.getException();
                                                 if (exception != null) {

@@ -10,8 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="-152dp">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,112 +21,91 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="32dp"
-                    android:text="FarmConnect"
-                    android:textColor="#008000"
-                    android:textSize="35sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:orientation="horizontal"
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="65dp"
-                    android:layout_height="55dp"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginBottom="15dp"
-                    android:src="@drawable/profile1"
-                    app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.069"
-                    app:layout_constraintStart_toEndOf="@+id/textView6"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/titleTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="FarmConnect"
+                        android:textColor="#008000"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="65dp"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="70dp"
+
+                        android:src="@drawable/profile1"
+                        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.069"
+                        app:layout_constraintStart_toEndOf="@+id/textView6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/linearLayout2"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="50dp"
 
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="160dp"
+                    android:layout_marginRight="30dp"
                     android:orientation="horizontal"
-
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.263"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6"
-                    app:layout_constraintVertical_bias="0.518">
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:src="@drawable/location" />
 
-                    <TextView
-                        android:id="@+id/textview7"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/locationSpinner"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-
-                        android:layout_marginRight="100dp"
-                        android:background="#ECEBE6"
-                        android:text="Choose Location "
-                        android:textColor="#000000"
-                        android:textSize="18dp"
-                        android:textStyle="italic" />
+                        android:layout_centerInParent="true"
+                        android:minHeight="48dp" />
 
                 </LinearLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
-                    android:layout_width="366dp"
-                    android:layout_height="155dp"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="32dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/vegetable_2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteY="2dp" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <EditText
                     android:id="@+id/editTextTextPersonName"
                     android:layout_width="360dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/background_search"
                     android:drawablePadding="10dp"
                     android:ems="10"
                     android:hint="Search Your Vegetable"
                     android:inputType="textPersonName"
-                    android:paddingStart="15dp"
+                    android:paddingStart="20dp"
                     android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-                    app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -154,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="16dp"
-                android:text="Top Products"
+                android:text="Recent Products"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -164,6 +142,24 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:id="@+id/topPro_RV"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="16dp"
+                android:text="Nearby Farmer"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:id="@+id/farm_RV"/>
+
+
 
         </LinearLayout>
 

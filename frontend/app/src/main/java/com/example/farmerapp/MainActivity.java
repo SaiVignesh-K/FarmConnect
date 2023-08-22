@@ -1,18 +1,26 @@
 package com.example.farmerapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.farmerapp.Adaptor.CategoryAdaptor;
+import com.example.farmerapp.Adaptor.FarmerAdaptor;
 import com.example.farmerapp.Adaptor.TopProductAdaptor;
 import com.example.farmerapp.Domain.CategoryDomain;
+import com.example.farmerapp.Domain.FarmerDomain;
 import com.example.farmerapp.Domain.TopProductDomain;
+
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.content.SharedPreferences;
 
 import java.util.ArrayList;
 
@@ -23,13 +31,59 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewCategoryList;
     private RecyclerView recyclerViewTopProList;
 
+    private RecyclerView recyclerViewFarmerList;
 
+    private static final String PREFS_NAME = "LocationPrefs";
+    private static final String SELECTED_LOCATION_KEY = "SelectedLocation";
+
+    private SharedPreferences sharedPreferences;
+    private Spinner locationSpinner;
+
+
+
+    // checkuserexistence();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
+        locationSpinner = findViewById(R.id.locationSpinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.states_array, // Define an array of state names in res/values/strings.xml
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpinner.setAdapter(adapter);
+
+        // Set a default prompt for the spinner
+        locationSpinner.setPrompt("Choose Location");
+
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedLocation = parent.getItemAtPosition(position).toString();
+                saveSelectedLocation(selectedLocation);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        // Set the spinner selection to the saved location
+        String savedLocation = sharedPreferences.getString(SELECTED_LOCATION_KEY, "");
+        if (!savedLocation.isEmpty()) {
+            int spinnerPosition = adapter.getPosition(savedLocation);
+            if (spinnerPosition >= 0) {
+                locationSpinner.setSelection(spinnerPosition);
+            }
+        }
 
         cartb = findViewById(R.id.carticon1);
 
@@ -51,10 +105,23 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         recyclerViewTopPro();
+        recyclerViewFarmer();
         bot1 =  findViewById(R.id.imageview3);
         buybtn =findViewById(R.id.imageview2);
         sellbtn =findViewById(R.id.imageview4);
 
+        //
+
+
+
+
+
+
+
+
+
+
+        //
 
         probtn = findViewById(R.id.imageView3);
         bot1.setOnClickListener(new View.OnClickListener() {
@@ -126,5 +193,37 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void recyclerViewFarmer(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewFarmerList = findViewById(R.id.farm_RV);
+        recyclerViewFarmerList.setLayoutManager(linearLayoutManager);
+
+        ArrayList<FarmerDomain> farmer = new ArrayList<>();
+        farmer.add(new FarmerDomain("farmer1","tomato"));
+
+        farmer.add(new FarmerDomain("Fruits","fruiticon"));
+        farmer.add(new FarmerDomain("Dairy","dairyicon"));
+        farmer.add(new FarmerDomain("Poultry","poultryicon"));
+        farmer.add(new FarmerDomain("Seeds","seedicon"));
+
+        adapter = new FarmerAdaptor(farmer);
+        recyclerViewFarmerList.setAdapter(adapter);
+
+    }
+
+    private void saveSelectedLocation(String location) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(SELECTED_LOCATION_KEY, location);
+        editor.apply();
+    }
+    void checkuserexistence(){
+        SharedPreferences sp = getSharedPreferences("credentials", MODE_PRIVATE);
+        if(sp.contains("username")){
+
+        }
+        else{
+            startActivity(new Intent(getApplicationContext(), login.class));
+        }
+    }
 
 }

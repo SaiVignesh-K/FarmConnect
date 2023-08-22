@@ -22,7 +22,7 @@
             android:name=".signup"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
             android:name=".buy"
@@ -43,7 +43,7 @@
             android:name=".cart"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
