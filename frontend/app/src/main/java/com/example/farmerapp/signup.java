@@ -71,22 +71,25 @@ public class signup extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> databaseTask) {
                                             if (databaseTask.isSuccessful()) {
-
+                                                Toast.makeText(signup.this, "User registration successful!", Toast.LENGTH_SHORT).show();
                                             } else {
-                                                Exception exception = task.getException();
+                                                Exception exception = databaseTask.getException();
                                                 if (exception != null) {
-                                                    Toast.makeText(signup.this, "Registration failed: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(signup.this, "Database storage failed: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
                                                 }
-                                                // Database storage failed, handle the error
                                             }
                                         }
                                     });
                         } else {
-                            // User registration failed, handle the error
+                            Exception exception = task.getException();
+                            if (exception != null) {
+                                Toast.makeText(signup.this, "User registration failed: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });
     }
+
 
 }
 

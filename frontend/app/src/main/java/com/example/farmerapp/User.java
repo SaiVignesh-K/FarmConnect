@@ -15,6 +15,18 @@ public class User {
         this.isFarmer = isFarmer;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setFarmer(boolean farmer) {
+        isFarmer = farmer;
+    }
+
     public String getEmail() {
         return email;
     }
