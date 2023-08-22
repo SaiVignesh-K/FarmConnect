@@ -41,18 +41,6 @@
                 android:textColor="#90EE90"/>
 
             <EditText
-                android:id="@+id/signupname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:drawablePadding="5dp"
-                android:hint="Name"
-                android:minHeight="48dp"
-                android:padding="5dp"
-                android:textColor="@color/black" />
-
-            <EditText
                 android:id="@+id/signupemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
