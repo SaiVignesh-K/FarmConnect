@@ -10,7 +10,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -69,8 +73,24 @@ public class sell extends AppCompatActivity {
 
         Product product = new Product(itemName, price, quantity, category, location, farmerId);
         String productId = databaseReference.push().getKey();
-        databaseReference.child(productId).setValue(product);
-        Toast.makeText(sell.this, "Product uploaded successfully", Toast.LENGTH_SHORT).show();
+        databaseReference.child(productId).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(sell.this, "Product added successfully", Toast.LENGTH_SHORT).show();
+                    clearInputFields();
+                } else {
+                    Toast.makeText(sell.this, "Failed to add product", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 }
+    private void clearInputFields() {
+        itemNameEditText.getText().clear();
+        priceEditText.getText().clear();
+        quantityEditText.getText().clear();
+    }
 }
+
 
