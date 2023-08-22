@@ -114,32 +114,32 @@
                     app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
 
 
-                <EditText
-                    android:id="@+id/editTextNumber4"
+
+                <Spinner
+                    android:id="@+id/categorySpinner"
                     android:layout_width="257dp"
-                    android:layout_height="84dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:textSize="20sp"
-                    android:hint="Product Description"
-                    android:inputType="text"
+
+                    android:minHeight="48dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
-                <EditText
-                    android:id="@+id/editTextNumber5"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber3"
+                    android:entries="@array/category_options" />
+
+                <Spinner
+
+
+                    android:layout_height="wrap_content"
                     android:layout_width="257dp"
-                    android:layout_height="84dp"
+                    android:minHeight="48dp"
                     android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:hint="Phone Number"
-                    android:inputType="phone"
-                    android:textSize="20sp"
+                    android:id="@+id/locationEditText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.447"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber4" />
+                    app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
 
                 <Button
                     android:id="@+id/button6"
@@ -151,7 +151,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.448"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber5" />
+                    app:layout_constraintTop_toBottomOf="@+id/locationEditText" />
+
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

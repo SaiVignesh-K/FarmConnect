@@ -1,35 +1,44 @@
 package com.example.farmerapp;
 
-
 import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class sell extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
-
-    private EditText itemNameEditText, pricePerKgEditText, kgAvailableEditText, descriptionEditText, farmerIdEditText;
+    private EditText itemNameEditText, pricePerKgEditText, kgAvailableEditText;
+    private Spinner categorySpinner , locationSpinner;
     private Button addButton;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sell); // Make sure to use the correct layout name
+        setContentView(R.layout.activity_sell);
 
+        mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("products");
 
         itemNameEditText = findViewById(R.id.editTextNumber);
         pricePerKgEditText = findViewById(R.id.editTextNumber2);
         kgAvailableEditText = findViewById(R.id.editTextNumber3);
-        descriptionEditText = findViewById(R.id.editTextNumber4);
-        farmerIdEditText = findViewById(R.id.editTextNumber5);
+        categorySpinner = findViewById(R.id.categorySpinner);
+        locationSpinner = findViewById(R.id.locationEditText);
         addButton = findViewById(R.id.button6);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(adapter);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,21 +52,45 @@ public class sell extends AppCompatActivity {
         String itemName = itemNameEditText.getText().toString();
         String pricePerKg = pricePerKgEditText.getText().toString();
         String kgAvailable = kgAvailableEditText.getText().toString();
-        String description = descriptionEditText.getText().toString();
-        String farmerId = farmerIdEditText.getText().toString();
+        String selectedCategory = categorySpinner.getSelectedItem().toString();
+        String selectedLocation =
+        String farmerId = fetchFarmerIdFromDatabase();
+
+        // Here you can create a Product object and store it in Firebase
+        Product product = new Product(itemName, pricePerKg, kgAvailable, selectedCategory, farmerId);
 
         String productId = databaseReference.push().getKey();
-
-        Product product = new Product(productId, itemName, pricePerKg, kgAvailable, description, farmerId);
-
         databaseReference.child(productId).setValue(product);
 
         // Clear input fields
         itemNameEditText.setText("");
         pricePerKgEditText.setText("");
         kgAvailableEditText.setText("");
-        descriptionEditText.setText("");
-        farmerIdEditText.setText("");
+    }
+
+    private String fetchFarmerIdFromDatabase() {
+        String userId = mAuth.getCurrentUser().getUid();
+
+        // Assuming you have a reference to the user's farmer ID in Firebase
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference farmerIdRef = usersRef.child(userId).child("farmerId");
+
+        // Read the farmer ID from the database
+        final String[] farmerId = {null};
+        farmerIdRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    farmerId[0] = dataSnapshot.getValue(String.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle errors here
+            }
+        });
+
+        return farmerId[0];
     }
 }
-
