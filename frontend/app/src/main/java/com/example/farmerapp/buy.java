@@ -82,12 +82,12 @@ public class buy extends AppCompatActivity {
                         filteredProducts.clear();
                         for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                             Product product = productSnapshot.getValue(Product.class);
-                            Toast.makeText(buy.this, "Database storage failed: " + product.getItemName(), Toast.LENGTH_SHORT).show();
                             if (product.getLocation().equals(userLocation)) {
                                 filteredProducts.add(product);
                             }
                         }
                         updateAdapterData(filteredProducts);
+                        Toast.makeText(buy.this, "Database storage failed: " +"finalnithin", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -148,6 +148,7 @@ public class buy extends AppCompatActivity {
         productList.clear();
         productList.addAll(newData);
         // Notify the adapter that the data has changed
+        Toast.makeText(buy.this, "Database storage failed: " +"finalnithin", Toast.LENGTH_SHORT).show();
         productAdapter.notifyDataSetChanged();
         recyclerViewPro();
     }

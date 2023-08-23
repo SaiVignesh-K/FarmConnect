@@ -84,6 +84,9 @@ public class Product {
     private String location;
     private String farmerId; // Add farmerId to the class
 
+    public Product() {
+    }
+
     public Product(String itemName, double pricePerKg, double quantityAvailable, String category, String location, String farmerId) {
         this.itemName = itemName;
         this.pricePerKg = pricePerKg;
