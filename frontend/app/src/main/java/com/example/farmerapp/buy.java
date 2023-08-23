@@ -66,15 +66,15 @@ public class buy extends AppCompatActivity {
                 Toast.makeText(buy.this, "Database storage failed: " + checkedId, Toast.LENGTH_SHORT).show();
                 ArrayList<Product> filteredProducts = new ArrayList<>();
                 String selectedCategory = null;
-                if (checkedId == 2131296682) {
+                if (checkedId == 2131296683) {
                     selectedCategory = "Vegetables";
-                } else if (checkedId == 2131296683) {
-                    selectedCategory = "Fruits";
                 } else if (checkedId == 2131296684) {
+                    selectedCategory = "Fruits";
+                } else if (checkedId == 2131296685) {
                     selectedCategory = "Dairy";
-                } else if(checkedId== 2131296685){
+                } else if(checkedId== 2131296686){
                     selectedCategory = "Poultry";
-                }else if(checkedId==2131296686){
+                }else if(checkedId==2131296687){
                     selectedCategory = "Seeds";
                 }
 //                Toast.makeText(buy.this, "Database storage failed: " + selectedCategory+"nithin", Toast.LENGTH_SHORT).show();
@@ -182,7 +182,8 @@ public class buy extends AppCompatActivity {
         for (Product product : productList1) {
             // Create a new ProductDomain object with the relevant data from the product
 //            Toast.makeText(this.getClass().newInstance(), "Database " + product.getItemName(), Toast.LENGTH_SHORT).show();
-            pro.add(new ProductDomain(product.getItemName() ,"tomatoicon",product.getPricePerKg(),product.getQuantityAvailable(),product.getFarmerId()));
+            String s= product.getItemName().toLowerCase();
+            pro.add(new ProductDomain(product.getItemName() ,s+"icon",product.getPricePerKg(),product.getQuantityAvailable(),product.getFarmerId()));
 
         }
 //        Toast.makeText(buy.this, pro.size() +"finalnithin", Toast.LENGTH_SHORT).show();

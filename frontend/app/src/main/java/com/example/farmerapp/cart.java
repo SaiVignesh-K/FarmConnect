@@ -38,7 +38,8 @@ public class cart extends AppCompatActivity {
             if (product != null) {
                 // Use the product details as needed
                 // For example: String title = product.getTitle();
-                int imageResourceId = getResources().getIdentifier("fruiticon", "drawable", getPackageName());
+                String s= product.getTitle().toLowerCase()+"icon";
+                int imageResourceId = getResources().getIdentifier(s, "drawable", getPackageName());
                 if (imageResourceId != 0) {
                     image.setBackgroundResource(imageResourceId);
                 }
@@ -58,7 +59,7 @@ public class cart extends AppCompatActivity {
 
 
             }
-            Toast.makeText(cart.this, " " + product.getTitle()+"i love u nithin", Toast.LENGTH_LONG).show();
+//            Toast.makeText(cart.this, " " + product.getTitle()+"i love u nithin", Toast.LENGTH_LONG).show();
         }
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override

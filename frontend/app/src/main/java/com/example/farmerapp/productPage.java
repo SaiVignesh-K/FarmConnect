@@ -30,7 +30,7 @@ public class productPage extends AppCompatActivity {
         setContentView(layout.activity_product_page);
 
         cart = findViewById(id.addtocart);
-        buybtn = findViewById(id.buy);
+//        buybtn = findViewById(id.buy);
 
         name = findViewById(id.name);
         price = findViewById(id.price);
@@ -44,13 +44,13 @@ public class productPage extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-        buybtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(productPage.this,buy.class);
-                startActivity(intent);
-            }
-        });
+//        buybtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(productPage.this,buy.class);
+//                startActivity(intent);
+//            }
+//        });
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -58,7 +58,8 @@ public class productPage extends AppCompatActivity {
             if (product != null) {
                 // Use the product details as needed
                 // For example: String title = product.getTitle();
-                int imageResourceId = getResources().getIdentifier("fruiticon", "drawable", getPackageName());
+                String s= product.getTitle().toLowerCase()+"icon";
+                int imageResourceId = getResources().getIdentifier(s, "drawable", getPackageName());
                 if (imageResourceId != 0) {
                     image.setBackgroundResource(imageResourceId);
                 }

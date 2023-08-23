@@ -67,9 +67,9 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
         ProductDomain product = productDomains.get(position);
         holder.productName.setText(product.getTitle());
-        holder.quantity.setText(String.valueOf((int) product.getAvailable()));
-        holder.price.setText(String.valueOf((int) product.getCost()));
-        holder.farmerid.setText(product.getFarmer());
+        holder.quantity.setText("Quan. Available: "+String.valueOf((int) product.getAvailable())+" Kgs");
+        holder.price.setText("Price/kg: $"+String.valueOf((int) product.getCost()));
+        holder.farmerid.setText("id"+product.getFarmer());
 //        holder.productPic.setBackground(Drawable.createFromPath("fruiticon"));
 ////        Log.d("TAG", "Your log message here");
 //        Glide.with(holder.itemView.getContext())
@@ -108,8 +108,8 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
 
 
-
-        int drawableResId = holder.itemView.getContext().getResources().getIdentifier("fruiticon", "drawable", holder.itemView.getContext().getPackageName());
+        String s= product.getTitle().toLowerCase()+"icon";
+        int drawableResId = holder.itemView.getContext().getResources().getIdentifier(s, "drawable", holder.itemView.getContext().getPackageName());
         if (drawableResId != 0) {
             holder.productPic.setBackgroundResource(drawableResId);
         }
