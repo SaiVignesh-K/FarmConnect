@@ -172,7 +172,7 @@ public class buy extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerViewProList = findViewById(R.id.cat_RV);
         recyclerViewProList.setLayoutManager(linearLayoutManager);
-        Toast.makeText(buy.this, productList1.size() +"finalnithin", Toast.LENGTH_SHORT).show();
+
         ArrayList<ProductDomain> pro = new ArrayList<>();
 //        pro.add(new ProductDomain("Vegetable","tomatoicon",56,351,"rajjeevv"));
         for (Product product : productList1) {
@@ -181,8 +181,10 @@ public class buy extends AppCompatActivity {
             pro.add(new ProductDomain(product.getItemName() ,"tomatoicon",product.getPricePerKg(),product.getQuantityAvailable(),product.getFarmerId()));
 
         }
+//        Toast.makeText(buy.this, pro.size() +"finalnithin", Toast.LENGTH_SHORT).show();
 
         adapter = new ProductAdaptor(pro);
         recyclerViewProList.setAdapter(adapter);
+        Toast.makeText(buy.this, pro.size() +"fikhvkchvk uvhn", Toast.LENGTH_SHORT).show();
     }
 }

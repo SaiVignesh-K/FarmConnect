@@ -20,13 +20,14 @@ import com.example.farmerapp.R;
 
 import java.time.Instant;
 import java.util.ArrayList;
-
+import android.util.Log;
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder> {
 
 
     ArrayList<ProductDomain> productDomains;
 
     public ProductAdaptor(ArrayList<ProductDomain> productDomains) {
+//
         this.productDomains = productDomains;
     }
 
@@ -39,42 +40,67 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
     }
 
     @Override
+//    @Override
+//    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+//        // Use position to get the corresponding ProductDomain from the array
+//        ProductDomain product = productDomains.get(position);
+//
+//        // Set the data to the views in your ViewHolder
+//        holder.productName.setText(product.getTitle());
+//
+//        // ... other view bindings ...
+//
+//        // Load image using Glide or any other image loading library
+//        Glide.with(holder.itemView.getContext())
+//                .load(product.getImageUrl())
+//                .into(holder.productPic);
+//    }
+
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.productName.setText(productDomains.get(position).getTitle());
-        String picUrl="";
-        switch (position){
-            case 0: {
-                picUrl = "vegicon";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                break;
-            }
-            case 1: {
-                picUrl = "fruiticon";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                break;
-            }
-            case 2: {
-                picUrl = "dairyicon";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                break;
-            }
-            case 3: {
-                picUrl = "poultryicon";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                break;
-            }
-            case 4: {
-                picUrl = "seedicon";
-                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
-                break;
-            }
-        }
-        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holder.itemView.getContext().getPackageName());
 
-
+        ProductDomain product = productDomains.get(position);
+        holder.productName.setText(product.getTitle());
+        holder.quantity.setText(String.valueOf((int) product.getAvailable()));
+        holder.price.setText(String.valueOf((int) product.getCost()));
+        holder.farmerid.setText(product.getFarmer());
+//        Log.d("TAG", "Your log message here");
         Glide.with(holder.itemView.getContext())
-                .load(drawableResourceId)
+                .load(product.getPic())
                 .into(holder.productPic);
+//        String picUrl="";
+//        switch (position){
+//            case 0: {
+//                picUrl = "vegicon";
+//                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
+//                break;
+//            }
+//            case 1: {
+//                picUrl = "fruiticon";
+//                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
+//                break;
+//            }
+//            case 2: {
+//                picUrl = "dairyicon";
+//                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
+//                break;
+//            }
+//            case 3: {
+//                picUrl = "poultryicon";
+//                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
+//                break;
+//            }
+//            case 4: {
+//                picUrl = "seedicon";
+//                holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
+//                break;
+//            }
+//        }
+//        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holder.itemView.getContext().getPackageName());
+//
+//
+//        Glide.with(holder.itemView.getContext())
+//                .load(drawableResourceId)
+//                .into(holder.productPic);
     }
 
     @Override
