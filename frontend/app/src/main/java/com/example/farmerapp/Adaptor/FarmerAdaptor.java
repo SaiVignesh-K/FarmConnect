@@ -38,27 +38,27 @@ public class FarmerAdaptor extends RecyclerView.Adapter<FarmerAdaptor.ViewHolder
         String picUrl="";
         switch (position){
             case 0: {
-                picUrl = "vegicon";
+                picUrl = "farmer1a";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
                 break;
             }
             case 1: {
-                picUrl = "fruiticon";
+                picUrl = "farmer1c";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
                 break;
             }
             case 2: {
-                picUrl = "dairyicon";
+                picUrl = "farmer1b";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
                 break;
             }
             case 3: {
-                picUrl = "poultryicon";
+                picUrl = "farmer1d";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
                 break;
             }
             case 4: {
-                picUrl = "seedicon";
+                picUrl = "farmer1e";
                 holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.cat_background1));
                 break;
             }
