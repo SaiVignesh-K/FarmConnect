@@ -1,7 +1,11 @@
 package com.example.farmerapp;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.farmerapp.R.*;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +14,17 @@ import android.widget.ImageView;
 
 public class productPage extends AppCompatActivity {
     Button cart, buybtn , negotiatebtn ;
+    RecyclerView recyclerView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_page);
+        setContentView(layout.activity_product_page);
 
-        cart = findViewById(R.id.addtocart);
-        buybtn = findViewById(R.id.buy);
+        cart = findViewById(id.addtocart);
+        buybtn = findViewById(id.buy);
+
+        recyclerView = findViewById(id.productRecycle);
 
 
         cart.setOnClickListener(new View.OnClickListener() {

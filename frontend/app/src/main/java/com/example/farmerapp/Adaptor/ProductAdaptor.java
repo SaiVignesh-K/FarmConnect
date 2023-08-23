@@ -1,5 +1,6 @@
 package com.example.farmerapp.Adaptor;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
 
     ArrayList<ProductDomain> productDomains;
+
 
     public ProductAdaptor(ArrayList<ProductDomain> productDomains) {
 //
@@ -63,7 +65,21 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
         holder.quantity.setText(String.valueOf((int) product.getAvailable()));
         holder.price.setText(String.valueOf((int) product.getCost()));
         holder.farmerid.setText(product.getFarmer());
-//        Log.d("TAG", "Your log message here");
+//        holder.productPic.setBackground(Drawable.createFromPath("fruiticon"));
+////        Log.d("TAG", "Your log message here");
+//        Glide.with(holder.itemView.getContext())
+//                .load(product.getPic())
+//                .into(holder.productPic);
+
+
+
+
+        int drawableResId = holder.itemView.getContext().getResources().getIdentifier("fruiticon", "drawable", holder.itemView.getContext().getPackageName());
+        if (drawableResId != 0) {
+            holder.productPic.setBackgroundResource(drawableResId);
+        }
+
+        // Load the image using Glide from the provided URL
         Glide.with(holder.itemView.getContext())
                 .load(product.getPic())
                 .into(holder.productPic);
