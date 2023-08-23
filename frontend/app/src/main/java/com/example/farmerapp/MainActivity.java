@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SELECTED_LOCATION_KEY = "SelectedLocation";
 
     private SharedPreferences sharedPreferences;
+    public String Select_location;
     private Spinner locationSpinner;
 
 
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedLocation = parent.getItemAtPosition(position).toString();
+                Select_location=selectedLocation;
                 saveSelectedLocation(selectedLocation);
             }
 
@@ -135,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, buy.class);
+                intent.putExtra("user_location", Select_location);
                 startActivity(intent);
             }
         });
