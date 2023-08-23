@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -29,7 +30,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
         this.productDomains = productDomains;
     }
 
-
+//    Toast.makeText(this.getClass().newInstance(), "Database " + product.getItemName(), Toast.LENGTH_SHORT).show();
 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,7 +40,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.categoryName.setText(productDomains.get(position).getTitle());
+        holder.productName.setText(productDomains.get(position).getTitle());
         String picUrl="";
         switch (position){
             case 0: {
@@ -73,7 +74,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
-                .into(holder.categoryPic);
+                .into(holder.productPic);
     }
 
     @Override
@@ -82,14 +83,18 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView categoryName;
-        ImageView categoryPic;
+        TextView productName, price, quantity,farmerid;
+        ImageView productPic;
+
         ConstraintLayout mainLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            categoryName = itemView.findViewById(R.id.categoryName);
-            categoryPic = itemView.findViewById(R.id.categoryPic);
+            productName = itemView.findViewById(R.id.productNameTextView);
+            productPic = itemView.findViewById(R.id.productImageView);
+            price = itemView.findViewById(R.id.productPriceTextView);
+            quantity = itemView.findViewById(R.id.productDescriptionTextView);
+            farmerid = itemView.findViewById(R.id.productPriceTextView2);
             mainLayout = itemView.findViewById(R.id.mainlayout1);
 
         }

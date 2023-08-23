@@ -32,7 +32,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Product Description"
+        android:text="Quantity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/productImageView"
         app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
@@ -46,5 +46,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/productImageView"
         app:layout_constraintTop_toBottomOf="@+id/productDescriptionTextView" />
+    <TextView
+        android:id="@+id/productPriceTextView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Farmer ID:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/productImageView"
+        app:layout_constraintTop_toBottomOf="@+id/productPriceTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
