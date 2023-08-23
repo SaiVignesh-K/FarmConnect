@@ -28,7 +28,7 @@
             android:name=".SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".signup"
+            android:name=".bot"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -49,7 +49,7 @@
             android:name=".cart"
             android:exported="false" />
         <activity
-            android:name=".bot"
+            android:name=".signup"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

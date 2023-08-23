@@ -1,11 +1,13 @@
 
 package com.example.farmerapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,9 +25,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class sell extends AppCompatActivity {
 
+
     private EditText itemNameEditText, priceEditText, quantityEditText;
     private Spinner categorySpinner, locationSpinner;
     private Button addButton;
+
+    ImageView homebtn,buybtn,botbtn,cartbtn,backbtn,profilebtn;
 
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
@@ -37,6 +42,56 @@ public class sell extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("products");
+
+
+        homebtn = findViewById(R.id.imageview1);
+        buybtn = findViewById(R.id.imageview2);
+        botbtn = findViewById(R.id.imageview3);
+        cartbtn = findViewById(R.id.imageview5);
+        backbtn = findViewById(R.id.backButton);
+        profilebtn = findViewById(R.id.imageView3);
+        homebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sell.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        buybtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sell.this, buy.class);
+                startActivity(intent);
+            }
+        });
+        botbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sell.this, bot.class);
+                startActivity(intent);
+            }
+        });
+        cartbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sell.this, cart.class);
+                startActivity(intent);
+            }
+        });
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sell.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(sell.this, profile.class);
+                startActivity(intent);
+            }
+        });
 
         itemNameEditText = findViewById(R.id.editTextNumber);
         priceEditText = findViewById(R.id.editTextNumber2);
