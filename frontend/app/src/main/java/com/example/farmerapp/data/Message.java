@@ -1,9 +1,18 @@
-package com.example.farmerapp;
+package com.example.farmerapp.data;
 
-public class ChatsModal {
+public class Message {
+
+    // string to store our message and sender
     private String message;
     private String sender;
 
+    // constructor.
+    public Message(String message, String sender) {
+        this.message = message;
+        this.sender = sender;
+    }
+
+    // getter and setter methods.
     public String getMessage() {
         return message;
     }
@@ -17,11 +26,6 @@ public class ChatsModal {
     }
 
     public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-    public ChatsModal(String message, String sender) {
-        this.message = message;
         this.sender = sender;
     }
 }

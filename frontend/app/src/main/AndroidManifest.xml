@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmerApp"
         tools:targetApi="31">
+
+        <activity
+            android:name=".login"
+            android:exported="false" />
         <activity
             android:name=".sscart"
             android:exported="false" />
@@ -31,9 +40,6 @@
             android:name=".sell"
             android:exported="false" />
         <activity
-            android:name=".bot"
-            android:exported="false" />
-        <activity
             android:name=".productPage"
             android:exported="false" />
         <activity
@@ -43,7 +49,7 @@
             android:name=".cart"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".bot"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

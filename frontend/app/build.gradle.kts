@@ -48,7 +48,10 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.google.firebase:firebase-database-ktx:20.2.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
-
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.intuit.sdp:sdp-android:1.1.0")
+    implementation ("androidx.core:core-ktx:1.7.0")
+    implementation ("androidx.appcompat:appcompat:1.6.1")
 
     //prev
     testImplementation("junit:junit:4.13.2")

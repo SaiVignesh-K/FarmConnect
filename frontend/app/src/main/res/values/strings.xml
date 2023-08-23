@@ -32,15 +32,15 @@
         <item>West Bengal</item>
     </string-array>
 
-        <!-- ... other resources ... -->
+    <!-- ... other resources ... -->
 
-        <string-array name="category_options">
-            <item>Vegetables</item>
-            <item>Fruits</item>
-            <item>Dairy</item>
-            <item>Poultry</item>
-            <item>Seeds</item>
-        </string-array>
+    <string-array name="category_options">
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Dairy</item>
+        <item>Poultry</item>
+        <item>Seeds</item>
+    </string-array>
 
 
 </resources>

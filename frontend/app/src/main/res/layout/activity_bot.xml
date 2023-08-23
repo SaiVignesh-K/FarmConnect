@@ -1,50 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back_color"
-    tools:context=".MainActivity">
+    android:background="@drawable/back2"
+    tools:context=".bot">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/idRVChats"
-        android:layout_above="@+id/idRLMsg"/>
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/idRLMsg">
-
-        <EditText
-            android:id="@+id/idEdtMessage"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_margin="3dp"
+            android:theme="@style/CustomActionBar"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            android:layout_toLeftOf="@id/idFABSend"
-            android:hint="Enter Message"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
 
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_send"
-            android:id="@+id/idFABSend"
-            android:layout_margin="4dp"
-            app:fabCustomSize="45dp"
-            android:backgroundTint="@color/fab_color"
-            android:tint="@color/white"
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="CHAT BOT"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="bold" />
 
-            android:layout_alignParentRight="true"/>
+            </LinearLayout>
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-</RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/idRVChats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/idLLMessage" />
+
+            <LinearLayout
+                android:id="@+id/idLLMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <!--edit text to enter message-->
+
+
+                <EditText
+                    android:id="@+id/idEdtMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="4"
+                    android:background="@drawable/card_border"
+                    android:hint="Type message here"
+                    android:inputType="textShortMessage"
+                    android:paddingStart="10dp"
+                    android:textAlignment="gravity"
+                    android:textSize="17sp"
+                    tools:ignore="RtlSymmetry" />
+
+                <!--button to send message-->
+                <ImageView
+                    android:id="@+id/idIBSend"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_send"
+                    app:tint="#59c639" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
