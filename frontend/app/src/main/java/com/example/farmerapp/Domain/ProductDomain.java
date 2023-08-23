@@ -1,8 +1,9 @@
 package com.example.farmerapp.Domain;
 
 import com.example.farmerapp.Product;
+import java.io.Serializable;
 
-public class ProductDomain {
+public class ProductDomain implements Serializable {
     private String title;
     private String pic;
     private double cost;

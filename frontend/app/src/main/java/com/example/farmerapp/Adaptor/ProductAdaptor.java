@@ -1,5 +1,7 @@
 package com.example.farmerapp.Adaptor;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +19,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.farmerapp.Domain.CategoryDomain;
 import com.example.farmerapp.Domain.ProductDomain;
+import com.example.farmerapp.MainActivity;
 import com.example.farmerapp.R;
+import com.example.farmerapp.cart;
+import com.example.farmerapp.productPage;
 
 import java.time.Instant;
 import java.util.ArrayList;
-import android.util.Log;
+import android.util.Log;import java.io.Serializable;
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder> {
 
 
@@ -70,6 +75,36 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 //        Glide.with(holder.itemView.getContext())
 //                .load(product.getPic())
 //                .into(holder.productPic);
+
+//        holder.farmerid.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                // Obtain the context from the clicked view
+//                Context context = view.getContext();
+//
+//                // Create and start the intent
+//                Intent intent = new Intent(context, productPage.class);
+//                context.startActivity(intent);
+//            }
+//        });
+        holder.farmerid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Obtain the context from the clicked view
+                Context context = view.getContext();
+
+                // Get the clicked product
+                ProductDomain clickedProduct = productDomains.get(holder.getAdapterPosition());
+
+                // Create and start the intent
+                Intent intent = new Intent(context, productPage.class);
+
+                // Attach the product details to the intent
+                intent.putExtra("product", product);
+
+                context.startActivity(intent);
+            }
+        });
 
 
 

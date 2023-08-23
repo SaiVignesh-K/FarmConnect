@@ -11,9 +11,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.example.farmerapp.Domain.ProductDomain;
 
 public class productPage extends AppCompatActivity {
     Button cart, buybtn , negotiatebtn ;
+    TextView name, price, quan;
+    ImageView image;
     RecyclerView recyclerView;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -24,8 +31,10 @@ public class productPage extends AppCompatActivity {
         cart = findViewById(id.addtocart);
         buybtn = findViewById(id.buy);
 
-        recyclerView = findViewById(id.productRecycle);
-
+        name = findViewById(id.name);
+        price = findViewById(id.price);
+        quan = findViewById(id.quantity);
+        image=findViewById(id.image);
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +50,30 @@ public class productPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            ProductDomain product = (ProductDomain) intent.getSerializableExtra("product");
+            if (product != null) {
+                // Use the product details as needed
+                // For example: String title = product.getTitle();
+                int imageResourceId = getResources().getIdentifier("fruiticon", "drawable", getPackageName());
+                if (imageResourceId != 0) {
+                    image.setBackgroundResource(imageResourceId);
+                }
+                // Load the image using Glide
+                Glide.with(this)
+                        .load(product.getPic())
+                        .into(image);
+                name.setText("Name : "+ product.getTitle());
+                price.setText("Price/kg : "+ product.getCost());
+                quan.setText("Quantity : "+ product.getAvailable());
+            }
+            Toast.makeText(productPage.this, " " + product.getTitle()+"i love u nithin", Toast.LENGTH_LONG).show();
+        }
+
+
+
 //        negotiatebtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

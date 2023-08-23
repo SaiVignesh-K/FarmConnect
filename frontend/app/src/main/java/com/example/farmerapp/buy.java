@@ -63,10 +63,10 @@ public class buy extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // Handle category selection
-//                Toast.makeText(buy.this, "Database storage failed: " + checkedId+"nithin", Toast.LENGTH_SHORT).show();
+                Toast.makeText(buy.this, "Database storage failed: " + checkedId, Toast.LENGTH_SHORT).show();
                 ArrayList<Product> filteredProducts = new ArrayList<>();
                 String selectedCategory = null;
-                if (checkedId == 2131231135) {
+                if (checkedId == 2131296679) {
                     selectedCategory = "Vegetables";
                 } else if (checkedId == 2131231136) {
                     selectedCategory = "Fruits";

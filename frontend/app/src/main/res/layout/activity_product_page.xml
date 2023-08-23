@@ -28,15 +28,49 @@
                 android:src="@drawable/back" />
 
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/image"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:padding="10dp"
+            android:textSize="30dp"
+            android:text="Name"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/price"
+            android:textSize="25dp"
+            android:text="Price"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/quantity"
+            android:textSize="25dp"
+            android:text="Available Quantity:"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:padding="10dp"
+            android:id="@+id/required"
+            android:textSize="25dp"
+            android:hint="Required Quantity:"
+            />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="377dp"
-            android:layout_height="406dp"
-            android:id="@+id/productRecycle"/>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="385dp"
+            android:layout_height="118dp"
             android:orientation="horizontal"
             android:padding="15dp">
 
@@ -44,10 +78,10 @@
                 android:id="@+id/addtocart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-
                 android:layout_marginLeft="5dp"
+
                 android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:text="Cart" />
 
             <Button
