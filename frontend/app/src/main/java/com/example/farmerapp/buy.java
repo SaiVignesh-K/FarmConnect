@@ -68,10 +68,14 @@ public class buy extends AppCompatActivity {
                 String selectedCategory = null;
                 if (checkedId == 2131231135) {
                     selectedCategory = "Vegetables";
-                } else if (checkedId == 2) {
+                } else if (checkedId == 2131231136) {
                     selectedCategory = "Fruits";
-                } else if (checkedId == 3) {
+                } else if (checkedId == 2131231137) {
+                    selectedCategory = "Dairy";
+                } else if(checkedId== 2131231138){
                     selectedCategory = "Poultry";
+                }else if(checkedId==2131231139){
+                    selectedCategory = "Seeds";
                 }
 //                Toast.makeText(buy.this, "Database storage failed: " + selectedCategory+"nithin", Toast.LENGTH_SHORT).show();
                 userLocation = getIntent().getStringExtra("user_location");
@@ -169,7 +173,7 @@ public class buy extends AppCompatActivity {
 
     }
     private void recyclerViewPro(){
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerViewProList = findViewById(R.id.cat_RV);
         recyclerViewProList.setLayoutManager(linearLayoutManager);
 
