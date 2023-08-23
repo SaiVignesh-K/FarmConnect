@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,13 +37,13 @@ public class productPage extends AppCompatActivity {
         quan = findViewById(id.quantity);
         image=findViewById(id.image);
 
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(productPage.this,cart.class);
-                startActivity(intent);
-            }
-        });
+//        cart.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(productPage.this,cart.class);
+//                startActivity(intent);
+//            }
+//        });
         buybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,8 +69,32 @@ public class productPage extends AppCompatActivity {
                 name.setText("Name : "+ product.getTitle());
                 price.setText("Price/kg : "+ product.getCost());
                 quan.setText("Quantity : "+ product.getAvailable());
+
+
+
+                cart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Context context = view.getContext();
+
+                        // Get the clicked product
+                        ProductDomain clickedProduct = product;
+
+                        // Create and start the intent
+                        Intent intent = new Intent(context, cart.class);
+
+                        // Attach the product details to the intent
+                        intent.putExtra("product", product);
+
+                        context.startActivity(intent);
+                    }
+                });
+
+
+
+
             }
-            Toast.makeText(productPage.this, " " + product.getTitle()+"i love u nithin", Toast.LENGTH_LONG).show();
+//            Toast.makeText(productPage.this, " " + product.getTitle()+"i love u nithin", Toast.LENGTH_LONG).show();
         }
 
 
