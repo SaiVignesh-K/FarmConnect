@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,7 +34,7 @@ public class bot extends AppCompatActivity  {
     private RecyclerView chatsRV;
     private ImageView sendMsgIB;
     private EditText userMsgEdt;
-    private ImageView ivBack;
+    private ImageView ivBack,goback;
     private final String USER_KEY = "user";
     private final String BOT_KEY = "bot";
 
@@ -60,7 +61,14 @@ public class bot extends AppCompatActivity  {
 
         // creating a new array list
         messageModalArrayList = new ArrayList<>();
-
+        goback=findViewById(R.id.botback);
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(bot.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // adding on click listener for send message button.
         sendMsgIB.setOnClickListener(new View.OnClickListener() {

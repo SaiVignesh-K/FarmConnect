@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".productPage">
+    tools:context=".productPage"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@drawable/wave"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -19,9 +22,8 @@
             android:orientation="horizontal">
 
             <ImageView
-
                 android:id="@+id/back"
-                android:layout_width="90dp"
+                android:layout_width="53dp"
                 android:layout_height="55dp"
                 android:layout_marginRight="350dp"
                 android:layout_weight="1"
@@ -64,6 +66,7 @@
             android:id="@+id/required"
             android:textSize="25dp"
             android:hint="Required Quantity:"
+            android:background="@null"
             />
 
 
@@ -79,19 +82,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:text="Cart" />
-
-            <Button
-                android:id="@+id/buy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="Buy" />
+                android:backgroundTint="#a4c639"
+                android:text="Add To Cart" />
 
             <Button
                 android:id="@+id/abcd"
@@ -100,6 +94,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
+                android:backgroundTint="#a4c639"
                 android:text="Negotiate" />
 
         </LinearLayout>
