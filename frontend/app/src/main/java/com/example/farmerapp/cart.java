@@ -41,18 +41,15 @@ public class cart extends AppCompatActivity {
         image = findViewById(R.id.image);
         checkout = findViewById(R.id.checkoutButton);
         Intent intent = getIntent();
-//        double c=0;
+
         if (intent != null) {
             ProductDomain product = (ProductDomain) intent.getSerializableExtra("product");
             if (product != null) {
-                // Use the product details as needed
-                // For example: String title = product.getTitle();
                 String s= product.getTitle().toLowerCase()+"icon";
                 int imageResourceId = getResources().getIdentifier(s, "drawable", getPackageName());
                 if (imageResourceId != 0) {
                     image.setBackgroundResource(imageResourceId);
                 }
-                // Load the image using Glide
                 Glide.with(this)
                         .load(product.getPic())
                         .into(image);
@@ -63,14 +60,10 @@ public class cart extends AppCompatActivity {
 
             }
 
-//            int a = Integer.parseInt(number.getText().toString());
-//            price.setText("Price : $"+ Integer.toString((int)(a*c)));
-//            Toast.makeText(cart.this, " " + product.getTitle()+"i love u nithin", Toast.LENGTH_LONG).show();
         }
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Calculate and display total price when the checkout button is clicked
                 try {
                     int a = Integer.parseInt(number.getText().toString());
                     price.setText("Price : $" + Integer.toString((int) (a * c)));
@@ -109,8 +102,6 @@ public class cart extends AppCompatActivity {
                 startActivity(intent);
             }});
 
-//        int a = Integer.parseInt(number.getText().toString());
-//        price.setText("Price : $"+ Integer.toString((int)(a*c)));
 
 }
 }

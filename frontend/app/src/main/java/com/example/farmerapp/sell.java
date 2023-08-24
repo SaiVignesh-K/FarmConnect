@@ -129,7 +129,7 @@ public class sell extends AppCompatActivity {
         String category = categorySpinner.getSelectedItem().toString();
         String location = locationSpinner.getSelectedItem().toString();
         String farmerId = mAuth.getCurrentUser().getUid();
-//        boolean farm = mAuth.getCurrentUser().get
+
 
         databaseReference1.child(farmerId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -140,7 +140,6 @@ public class sell extends AppCompatActivity {
                         boolean role = dataSnapshot.child("farmer").getValue(boolean.class);
 
                         if (role) {
-                            // The user is a farmer, proceed to upload the product
                             Product product = new Product(itemName, price, quantity, category, location, farmerId);
                             String productId = databaseReference.push().getKey();
                             databaseReference.child(productId).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {

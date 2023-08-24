@@ -7,7 +7,7 @@ public class Product {
     private double quantityAvailable;
     private String category;
     private String location;
-    private String farmerId; // Add farmerId to the class
+    private String farmerId;
 
     public Product() {
     }
@@ -18,7 +18,7 @@ public class Product {
         this.quantityAvailable = quantityAvailable;
         this.category = category;
         this.location = location;
-        this.farmerId = farmerId; // Initialize farmerId
+        this.farmerId = farmerId;
     }
 
     public String getItemName() {
@@ -68,6 +68,6 @@ public class Product {
     public void setFarmerId(String farmerId) {
         this.farmerId = farmerId;
     }
-// Other getters and setters
+
 }
 

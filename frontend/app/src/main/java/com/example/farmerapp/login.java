@@ -49,7 +49,6 @@ public class login extends AppCompatActivity {
         notRegisteredTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Navigate to SignupActivity
                 startActivity(new Intent(login.this, signup.class));
             }
         });

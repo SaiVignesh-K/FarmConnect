@@ -41,10 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private Spinner locationSpinner;
 
 
-
-    // checkuserexistence();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
-                R.array.states_array, // Define an array of state names in res/values/strings.xml
+                R.array.states_array,
                 android.R.layout.simple_spinner_item
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(adapter);
 
-        // Set a default prompt for the spinner
         locationSpinner.setPrompt("Choose Location");
 
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -78,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Set the spinner selection to the saved location
         String savedLocation = sharedPreferences.getString(SELECTED_LOCATION_KEY, "");
         if (!savedLocation.isEmpty()) {
             int spinnerPosition = adapter.getPosition(savedLocation);
@@ -97,13 +91,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        cartb.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, cart.class);
-//                startActivity(intent);
-//            }
-//        });
 
         recyclerViewCategory();
         recyclerViewTopPro();
@@ -112,18 +99,6 @@ public class MainActivity extends AppCompatActivity {
         buybtn =findViewById(R.id.imageview2);
         sellbtn =findViewById(R.id.imageview4);
 
-        //
-
-
-
-
-
-
-
-
-
-
-        //
 
         probtn = findViewById(R.id.imageView3);
         bot1.setOnClickListener(new View.OnClickListener() {

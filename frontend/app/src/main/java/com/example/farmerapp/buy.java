@@ -28,8 +28,7 @@ import java.util.ArrayList;
 public class buy extends AppCompatActivity {
     private RecyclerView recyclerViewProList;
     private RecyclerView.Adapter adapter;
-//    private ArrayList<Product> productList;
-//    public ArrayList<Product> productList1;
+
     ArrayList<Product> productList1 = new ArrayList<>();
     private ProductAdaptor productAdapter;
     ImageView bot1, homebtn, sellbtn, cartbtn;
@@ -39,7 +38,6 @@ public class buy extends AppCompatActivity {
     private String userLocation;
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
-    // Assuming you have a "products" node under your root reference
     DatabaseReference productsRef = rootRef.child("products");
 
     @Override
@@ -51,7 +49,6 @@ public class buy extends AppCompatActivity {
 
         radioGroup = findViewById(R.id.radioGroup);
 
-//        ArrayList<Product> productList1= new ArrayList<>();
         ArrayList productList = new ArrayList<>();
         recyclerViewProList = findViewById(R.id.cat_RV);
         productAdapter = new ProductAdaptor(productList);
@@ -62,8 +59,7 @@ public class buy extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // Handle category selection
-                Toast.makeText(buy.this, "Database storage failed: " + checkedId, Toast.LENGTH_SHORT).show();
+
                 ArrayList<Product> filteredProducts = new ArrayList<>();
                 String selectedCategory = null;
                 if (checkedId == 2131296684) {
@@ -77,11 +73,11 @@ public class buy extends AppCompatActivity {
                 }else if(checkedId==2131296688){
                     selectedCategory = "Seeds";
                 }
-//                Toast.makeText(buy.this, "Database storage failed: " + selectedCategory+"nithin", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(buy.this,  selectedCategory+"vignesh", Toast.LENGTH_SHORT).show();
                 userLocation = getIntent().getStringExtra("user_location");
-//                Toast.makeText(buy.this, "Database storage failed: " + userLocation+"nithin", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(buy.this,  userLocation+"nithin", Toast.LENGTH_SHORT).show();
                 Query query = productsRef.orderByChild("category").equalTo(selectedCategory);
-//                Toast.makeText(buy.this, "Database storage failed: " + userLocation+"nithin", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(buy.this,  userLocation+"rajeev", Toast.LENGTH_SHORT).show();
                 query.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -90,18 +86,17 @@ public class buy extends AppCompatActivity {
                             Product product = productSnapshot.getValue(Product.class);
                             if (product.getLocation().equals(userLocation)) {
                                 filteredProducts.add(product);
-//                                Toast.makeText(buy.this, product.getItemName() + filteredProducts.size()+"nithin", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(buy.this, product.getItemName() + filteredProducts.size()+"vignesh", Toast.LENGTH_SHORT).show();
                             }
                         }
-//                        Toast.makeText(buy.this, "Database storage failed: " + filteredProducts.size()+"nithin", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(buy.this,  filteredProducts.size()+"nithin", Toast.LENGTH_SHORT).show();
                         updateAdapterData(filteredProducts);
-//                        Toast.makeText(buy.this, "Database storage failed: " +"finalnithin", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(buy.this, "rajeev", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        // Getting data failed, log a message
-                        Log.w("Firebase", "loadPost:onCancelled", databaseError.toException());
+//                        Log.w("Firebase", "loadPost:onCancelled", databaseError.toException());
                     }
                 });
             }
@@ -152,23 +147,15 @@ public class buy extends AppCompatActivity {
     }
 
     private void updateAdapterData(ArrayList<Product> newData) {
-        // Update your adapter data with the new filtered list
-//        Toast.makeText(buy.this, "D " + newData.get(1).getItemName()+"nithin", Toast.LENGTH_LONG).show();
+
         productList1.clear();
-//        Toast.makeText(buy.this, productList1.size() +"finalnithin", Toast.LENGTH_SHORT).show();
         for(int i=0;i<newData.size();i++){
-//            double a = newData.get(i).getPricePerKg();
-//
+
             productList1.add(newData.get(i));
-            //Toast.makeText(buy.this, productList1.get(i).getItemName() +"finalnithin", Toast.LENGTH_SHORT).show();
-//            Toast.makeText(buy.this, newData.size() +"finalnithin", Toast.LENGTH_SHORT).show();
+
         }
-//        Toast.makeText(buy.this, productList1.size() +"finalnithin", Toast.LENGTH_SHORT).show();
-//        productList1.addAll(newData);
-        // Notify the adapter that the data has changed
-//        Toast.makeText(buy.this, productList.size() +"finalnithin", Toast.LENGTH_SHORT).show();
+
         productAdapter.notifyDataSetChanged();
-//        Toast.makeText(buy.this, productList1.size() +"finalnithin", Toast.LENGTH_SHORT).show();
         recyclerViewPro();
 
     }
@@ -178,18 +165,14 @@ public class buy extends AppCompatActivity {
         recyclerViewProList.setLayoutManager(linearLayoutManager);
 
         ArrayList<ProductDomain> pro = new ArrayList<>();
-//        pro.add(new ProductDomain("Vegetable","tomatoicon",56,351,"rajjeevv"));
         for (Product product : productList1) {
-            // Create a new ProductDomain object with the relevant data from the product
-//            Toast.makeText(this.getClass().newInstance(), "Database " + product.getItemName(), Toast.LENGTH_SHORT).show();
             String s= product.getItemName().toLowerCase();
             pro.add(new ProductDomain(product.getItemName() ,s+"icon",product.getPricePerKg(),product.getQuantityAvailable(),product.getFarmerId()));
 
         }
-//        Toast.makeText(buy.this, pro.size() +"finalnithin", Toast.LENGTH_SHORT).show();
+
 
         adapter = new ProductAdaptor(pro);
         recyclerViewProList.setAdapter(adapter);
-        Toast.makeText(buy.this, pro.size() +"fikhvkchvk uvhn", Toast.LENGTH_SHORT).show();
     }
 }

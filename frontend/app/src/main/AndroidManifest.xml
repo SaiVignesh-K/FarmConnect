@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmerApp"
         tools:targetApi="31">
-
         <activity
             android:name=".login"
             android:exported="false" />
@@ -24,7 +23,7 @@
             android:name=".sscart"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".signup"
             android:exported="false" />
         <activity
             android:name=".bot"
@@ -48,7 +47,7 @@
             android:name=".cart"
             android:exported="false" />
         <activity
-            android:name=".signup"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
