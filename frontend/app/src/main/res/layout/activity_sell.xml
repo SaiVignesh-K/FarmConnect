@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sell">
+    tools:context=".sell"
+    android:background="@drawable/wave2">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -148,6 +149,7 @@
                     android:layout_marginTop="10dp"
                     android:textSize="20sp"
                     android:text="ADD"
+                    android:backgroundTint="#a4c639"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.448"
                     app:layout_constraintStart_toStartOf="parent"

@@ -202,12 +202,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewFarmerList.setLayoutManager(linearLayoutManager);
 
         ArrayList<FarmerDomain> farmer = new ArrayList<>();
-        farmer.add(new FarmerDomain("farmer1","tomato"));
+        farmer.add(new FarmerDomain(" ","tomato"));
 
-        farmer.add(new FarmerDomain("Fruits","fruiticon"));
-        farmer.add(new FarmerDomain("Dairy","dairyicon"));
-        farmer.add(new FarmerDomain("Poultry","poultryicon"));
-        farmer.add(new FarmerDomain("Seeds","seedicon"));
+        farmer.add(new FarmerDomain(" ","fruiticon"));
+        farmer.add(new FarmerDomain(" ","dairyicon"));
+        farmer.add(new FarmerDomain(" ","poultryicon"));
+        farmer.add(new FarmerDomain(" ","seedicon"));
 
         adapter = new FarmerAdaptor(farmer);
         recyclerViewFarmerList.setAdapter(adapter);
