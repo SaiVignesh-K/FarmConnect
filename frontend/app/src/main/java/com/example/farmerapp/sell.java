@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,6 +35,7 @@ public class sell extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FirebaseApp.initializeApp(this);
@@ -42,6 +44,8 @@ public class sell extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        databaseReference1 = FirebaseDatabase.getInstance().getReference("users");
+
 
 
         homebtn = findViewById(R.id.imageview1);
@@ -124,18 +128,40 @@ public class sell extends AppCompatActivity {
         double quantity = Double.parseDouble(quantityEditText.getText().toString());
         String category = categorySpinner.getSelectedItem().toString();
         String location = locationSpinner.getSelectedItem().toString();
-        String farmerId = mAuth.getCurrentUser().getUid(); // Get the farmer's UID
+        String farmerId = mAuth.getCurrentUser().getUid();
+//        boolean farm = mAuth.getCurrentUser().get
 
-        Product product = new Product(itemName, price, quantity, category, location, farmerId);
-        String productId = databaseReference.push().getKey();
-        databaseReference.child(productId).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databaseReference1.child(farmerId).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(sell.this, "Product added successfully", Toast.LENGTH_SHORT).show();
-                    clearInputFields();
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot.exists()) {
+                        boolean role = dataSnapshot.child("farmer").getValue(boolean.class);
+
+                        if (role) {
+                            // The user is a farmer, proceed to upload the product
+                            Product product = new Product(itemName, price, quantity, category, location, farmerId);
+                            String productId = databaseReference.push().getKey();
+                            databaseReference.child(productId).setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(sell.this, "Product added successfully", Toast.LENGTH_SHORT).show();
+                                        clearInputFields();
+                                    } else {
+                                        Toast.makeText(sell.this, "Failed to add product", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        } else {
+                            Toast.makeText(sell.this, "You are not authorized to upload products", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(sell.this, "User data not found", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(sell.this, "Failed to add product", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(sell.this, "Failed to fetch user data", Toast.LENGTH_SHORT).show();
                 }
             }
         });

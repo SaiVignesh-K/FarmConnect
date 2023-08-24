@@ -66,15 +66,15 @@ public class buy extends AppCompatActivity {
                 Toast.makeText(buy.this, "Database storage failed: " + checkedId, Toast.LENGTH_SHORT).show();
                 ArrayList<Product> filteredProducts = new ArrayList<>();
                 String selectedCategory = null;
-                if (checkedId == 2131296683) {
+                if (checkedId == 2131296684) {
                     selectedCategory = "Vegetables";
-                } else if (checkedId == 2131296684) {
-                    selectedCategory = "Fruits";
                 } else if (checkedId == 2131296685) {
+                    selectedCategory = "Fruits";
+                } else if (checkedId == 2131296686) {
                     selectedCategory = "Dairy";
-                } else if(checkedId== 2131296686){
+                } else if(checkedId== 2131296687){
                     selectedCategory = "Poultry";
-                }else if(checkedId==2131296687){
+                }else if(checkedId==2131296688){
                     selectedCategory = "Seeds";
                 }
 //                Toast.makeText(buy.this, "Database storage failed: " + selectedCategory+"nithin", Toast.LENGTH_SHORT).show();

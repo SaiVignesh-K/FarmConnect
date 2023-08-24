@@ -68,8 +68,8 @@ public class productPage extends AppCompatActivity {
                         .load(product.getPic())
                         .into(image);
                 name.setText("Name : "+ product.getTitle());
-                price.setText("Price/kg : "+ product.getCost());
-                quan.setText("Quantity : "+ product.getAvailable());
+                price.setText("Price/kg : $"+ product.getCost());
+                quan.setText("Quantity : "+ product.getAvailable()+"Kgs");
 
 
 

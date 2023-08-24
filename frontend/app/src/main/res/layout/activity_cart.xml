@@ -63,6 +63,17 @@
                     android:text="Item 2"
                     android:textColor="#333333"
                     android:textSize="18sp" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/quan"
+                    android:inputType="number"
+
+                    android:layout_marginBottom="8dp"
+                    android:hint="Enter Quantity"
+                    android:textColor="#333333"
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -71,7 +82,7 @@
             android:id="@+id/totalPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total: $100"
+            android:text="Total: $0"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#FF5722"
