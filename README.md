@@ -1,8 +1,6 @@
 
-# 👨‍🌾 AgriConnect
-
-Revolutionizing agriculture support through unprecedented abstraction, user-friendly interfaces, and ubiquitous access.
-
+# 👨‍🌾 FarmConnect
+# App Demo Video: https://drive.google.com/file/d/1ax9SSNZtC9Dzot2sBkqisoBckncEP9fa/view?usp=sharing
 
 ## 🌾Deployment and Usage
 ### Deploying the API endpoints (backend)
@@ -29,11 +27,4 @@ The Project is Opensource. Feel free to use or modify the code.
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
-
-
-## Contributers
-
-- [@HonestFreak](https://www.github.com/HonestFreak)
-- [@karthikprasads](https://github.com/karthikprasads)
-- [@rajeev210403](https://github.com/rajeev210403)
 
